@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabTitleText: {
-    fontSize: 11,
+    fontSize: 12,
   },
 });
 
@@ -81,7 +81,7 @@ export default class TabNavigationLayout extends React.Component {
     const color = isSelected ? Colors.tabIconSelected : Colors.tabIconDefault;
 
     return (
-      <View>
+      <View style={styles.tabItemContainer}>
         <Ionicons name={iconName} size={32} color={color} />
 
         <Text style={[styles.tabTitleText, { color }]} numberOfLines={1}>

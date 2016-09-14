@@ -8,6 +8,6 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import Main from './src/main';
+import Main from './app/main';
 
 AppRegistry.registerComponent('Gemstones', () => Main);
