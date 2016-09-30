@@ -8,7 +8,7 @@ import {
 export default class About extends React.Component {
   static route = {
     navigationBar: {
-      title: 'Topics',
+      title: 'About',
     },
   }
 
