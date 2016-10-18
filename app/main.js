@@ -5,7 +5,10 @@ import {
   StackNavigation,
 } from '@exponent/ex-navigation';
 
+import { Provider as ReduxProvider } from 'react-redux';
+
 import Router from './navigation/router';
+import store from './redux';
 
 export default () => (
 /**
@@ -21,7 +24,9 @@ export default () => (
   * card analogy falls apart, but it's still useful when thinking
   * of individual stacks.
   */
-  <NavigationProvider router={Router}>
-    <StackNavigation initialRoute={Router.getRoute('tabNavigationLayout')} />
-  </NavigationProvider>
+  <ReduxProvider store={store()}>
+    <NavigationProvider router={Router}>
+      <StackNavigation initialRoute={Router.getRoute('tabNavigationLayout')} />
+    </NavigationProvider>
+  </ReduxProvider>
 );
