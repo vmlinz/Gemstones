@@ -24,7 +24,9 @@
 
 ### ui
 
+* [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+
 #### navigation
 
 * [ex-navigation](https://github.com/exponentjs/ex-navigation)
-* [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+
