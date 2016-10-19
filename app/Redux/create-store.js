@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
-import Reactotron from 'reactotron-react-native'
+import Reactotron from 'reactotron-react-native';
 import createSagaMiddleware from 'redux-saga';
 import R from 'ramda';
+import { createNavigationEnabledStore } from '@exponent/ex-navigation';
 
 import config from '../config/debug-settings';
 import { StartupTypes } from './startup-redux';
@@ -44,7 +45,13 @@ export default (rootReducer, rootSaga) => {
   // enhancers
   enhancers.push(applyMiddleware(...middlewares));
 
-  const store = createStore(rootReducer, compose(...enhancers));
+  // navigation store creator
+  const createStoreWithNavigation = createNavigationEnabledStore({
+    createStore,
+    navigationStateKey: 'navigation',
+  });
+
+  const store = createStoreWithNavigation(rootReducer, compose(...enhancers));
 
   sagaMiddleware.run(rootSaga);
 

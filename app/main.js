@@ -1,14 +1,22 @@
 import React from 'react';
 
 import {
+  NavigationContext,
   NavigationProvider,
   StackNavigation,
 } from '@exponent/ex-navigation';
 
 import { Provider as ReduxProvider } from 'react-redux';
 
-import Router from './navigation/router';
-import store from './redux';
+import router from './navigation/router';
+import createStore from './redux';
+
+const store = createStore();
+
+const navigationContext = new NavigationContext({
+  router,
+  store,
+});
 
 export default () => (
 /**
@@ -24,9 +32,9 @@ export default () => (
   * card analogy falls apart, but it's still useful when thinking
   * of individual stacks.
   */
-  <ReduxProvider store={store()}>
-    <NavigationProvider router={Router}>
-      <StackNavigation initialRoute={Router.getRoute('tabNavigationLayout')} />
+  <ReduxProvider store={store}>
+    <NavigationProvider context={navigationContext}>
+      <StackNavigation initialRoute={router.getRoute('tabNavigationLayout')} />
     </NavigationProvider>
   </ReduxProvider>
 );
