@@ -12,7 +12,7 @@ export const TopicsTypes = Types;
 export default Creators;
 
 // # initial state
-export const INITIAL_STATE = Immutable({
+export const INITIAL_STATE = Immutable.from({
   fetching: null,
   topics: null,
   error: null,

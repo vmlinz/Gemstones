@@ -14,11 +14,11 @@ const styles: Object = StyleSheet.create({
   },
 });
 
-function renderRow(row) {
+function renderRow(topic) {
   return (
     <View>
       <Text>
-        {row}
+        {topic.title}
       </Text>
     </View>
   );
@@ -30,17 +30,16 @@ type TypeProps = {
 class TopicsListView extends React.Component {
   constructor(props: TypeProps) {
     super(props);
-    console.log(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    this.topics = ds.cloneWithRows(props.topics);
+    this.dataSource = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
   }
-  topics: any[];
+  dataSource: any;
 
   render() {
+    const topics = this.dataSource.cloneWithRows(this.props.topics);
     return (
       <ListView
         style={styles.container}
-        dataSource={this.topics}
+        dataSource={topics}
         renderRow={renderRow}
       />
     );

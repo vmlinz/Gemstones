@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import {
   View,
+  Text,
 } from 'react-native';
 
 import TopicsListView from './topics-list-view';
@@ -28,17 +29,25 @@ class Topics extends React.Component {
   props: TypeProps;
 
   render() {
-    console.log(this.props);
+    const { topics } = this.props;
+    if (topics && topics.topics) {
+      console.log(topics.topics);
+      return (
+        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+          <TopicsListView topics={this.props.topics.topics} />
+        </View>
+      );
+    }
+
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-        <TopicsListView topics={this.props.topics} />
+        <Text>Loading topics</Text>
       </View>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     topics: state.topics,
   };
