@@ -31,7 +31,6 @@ class Topics extends React.Component {
   render() {
     const { topics } = this.props;
     if (topics && topics.topics) {
-      console.log(topics.topics);
       return (
         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
           <TopicsListView topics={this.props.topics.topics} />
