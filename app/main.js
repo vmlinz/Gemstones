@@ -8,6 +8,7 @@ import {
 
 import { Provider as ReduxProvider } from 'react-redux';
 
+import './config/reactotron-config';
 import router from './navigation/router';
 import createStore from './redux';
 

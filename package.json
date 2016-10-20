@@ -21,7 +21,9 @@
     "redux-logger": "^2.7.0",
     "redux-saga": "^0.12.0",
     "reduxsauce": "^0.2.0",
-    "seamless-immutable": "^6.3.0"
+    "seamless-immutable": "^6.3.0",
+    "reactotron-react-native": "^1.1.4",
+    "reactotron-redux": "^1.1.4"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
@@ -41,8 +43,6 @@
     "jest": "^16.0.1",
     "jest-react-native": "^16.0.0",
     "react-test-renderer": "^15.3.2",
-    "reactotron-react-native": "^1.1.4",
-    "reactotron-redux": "^1.1.4",
     "remark-cli": "^2.0.0",
     "remark-lint": "^5.1.0",
     "remark-preset-lint-consistent": "^1.0.0",

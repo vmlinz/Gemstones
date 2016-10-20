@@ -37,7 +37,7 @@ export default (rootReducer, rootSaga) => {
       isActionImportant: action =>
         action.type === StartupTypes.STARTUP,
       except: [...SAGA_LOGGING_BLACKLIST],
-    })
+    });
 
     enhancers.push(reactotronEnhancer);
   }
