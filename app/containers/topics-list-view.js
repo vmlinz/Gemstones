@@ -1,13 +1,11 @@
 // @flow
 import React from 'react';
 import {
-  View,
-  Text,
   ListView,
   StyleSheet,
 } from 'react-native';
 
-import Topic from './topics-list-view-item';
+import Topic from '../components/topics-list-view-item';
 
 const styles: Object = StyleSheet.create({
   topicsListView: {
