@@ -7,21 +7,16 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import Topic from './topics-list-view-item';
+
 const styles: Object = StyleSheet.create({
-  container: {
-    flex: 1,
+  topicsListView: {
     marginTop: 20,
   },
 });
 
 function renderRow(topic) {
-  return (
-    <View>
-      <Text>
-        {topic.title}
-      </Text>
-    </View>
-  );
+  return (<Topic topic={topic} />);
 }
 
 type TypeProps = {
@@ -38,7 +33,7 @@ class TopicsListView extends React.Component {
     const topics = this.dataSource.cloneWithRows(this.props.topics);
     return (
       <ListView
-        style={styles.container}
+        style={styles.topicsListView}
         dataSource={topics}
         renderRow={renderRow}
       />
