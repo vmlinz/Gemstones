@@ -4,6 +4,7 @@ import {
   View,
   Text,
   ScrollView,
+  WebView,
 } from 'react-native';
 
 import HTMLView from 'react-native-htmlview';
@@ -36,10 +37,8 @@ class Topic extends React.Component {
   props: TypeProps;
 
   render() {
-    console.log(this.props.route.params);
-    console.log(this.props);
     const { topic } = this.props;
-    if (topic) {
+    if (topic && topic.topic) {
       return (
         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
           <ScrollView style={{ padding: 8 }}>
