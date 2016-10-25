@@ -4,22 +4,30 @@ import {
   ListView,
   StyleSheet,
 } from 'react-native';
+import { withNavigation } from '@exponent/ex-navigation';
 
 import Topic from '../components/topics-list-view-item';
 
 const styles: Object = StyleSheet.create({
   topicsListView: {
-    marginTop: 20,
+    marginTop: 0,
   },
 });
 
-function renderRow(topic) {
-  return (<Topic topic={topic} />);
-}
+const gotoTopicDetails = (navigator) => {
+  navigator.push('topicDetails');
+};
+
+const renderRow = navigator => topic => (
+  <Topic topic={topic} onPress={() => { gotoTopicDetails(navigator); }} />
+);
 
 type TypeProps = {
   topics: any[],
+  navigator: Object,
 }
+
+@withNavigation
 class TopicsListView extends React.Component {
   constructor(props: TypeProps) {
     super(props);
@@ -33,7 +41,7 @@ class TopicsListView extends React.Component {
       <ListView
         style={styles.topicsListView}
         dataSource={topics}
-        renderRow={renderRow}
+        renderRow={renderRow(this.props.navigator)}
       />
     );
   }

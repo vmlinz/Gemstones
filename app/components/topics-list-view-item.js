@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View,
+  TouchableWithoutFeedback,
   Image,
   StyleSheet,
   Text,
@@ -38,21 +39,23 @@ const styles: Object = StyleSheet.create({
   },
 });
 
-export default ({ topic }: { topic: Object }) => (
-  <View style={styles.topicContainer}>
-    <Image
-      style={styles.avartarImage}
-      source={{ uri: topic.user.avatar_url }}
-    />
-    <View style={styles.topicInfoContainer}>
-      <View style={styles.topicTextWrapper}>
-        <Text style={styles.topicTitle} numberOfLines={2}>
-          {topic.title}
-        </Text>
-        <Text style={styles.topicDescription} numberOfLines={1}>
-          {topic.node_name}
-        </Text>
+export default ({ topic, onPress }: { topic: Object }) => (
+  <TouchableWithoutFeedback onPress={onPress}>
+    <View style={styles.topicContainer}>
+      <Image
+        style={styles.avartarImage}
+        source={{ uri: topic.user.avatar_url }}
+      />
+      <View style={styles.topicInfoContainer}>
+        <View style={styles.topicTextWrapper}>
+          <Text style={styles.topicTitle} numberOfLines={2}>
+            {topic.title}
+          </Text>
+          <Text style={styles.topicDescription} numberOfLines={1}>
+            {topic.node_name}
+          </Text>
+        </View>
       </View>
     </View>
-  </View>
+  </TouchableWithoutFeedback>
 );
