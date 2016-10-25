@@ -4,7 +4,7 @@ import TopicsActions from '../redux/topics-redux';
 
 export const selectTopics = state => state.topics.topics;
 
-export function* startup(action) {
+export function* startup() {
   const topics = yield select(selectTopics);
 
   if (topics == null) {

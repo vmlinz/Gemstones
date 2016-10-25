@@ -14,12 +14,13 @@ const styles: Object = StyleSheet.create({
   },
 });
 
-const gotoTopicDetails = (navigator) => {
-  navigator.push('topicDetails');
+const gotoTopicDetails = (navigator, topic) => {
+  console.log(topic);
+  navigator.push('topic', { id: topic.id, title: topic.title });
 };
 
 const renderRow = navigator => topic => (
-  <Topic topic={topic} onPress={() => { gotoTopicDetails(navigator); }} />
+  <Topic topic={topic} onPress={() => { gotoTopicDetails(navigator, topic); }} />
 );
 
 type TypeProps = {
