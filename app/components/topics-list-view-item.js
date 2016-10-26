@@ -39,7 +39,7 @@ const styles: Object = StyleSheet.create({
   },
 });
 
-export default ({ topic, onPress }: { topic: Object }) => (
+export default ({ topic, onPress }: { topic: Object, onPress: Function }) => (
   <TouchableWithoutFeedback onPress={onPress}>
     <View style={styles.topicContainer}>
       <Image
